@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arvo&family=DM+Sans&family=Fira+Code&family=Marvel:wght@400;700&family=Montserrat&family=Noto+Serif&family=Open+Sans&family=Plus+Jakarta+Sans&family=Poppins&family=Sora&family=Ubuntu&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'noto serif' ;
+        }
+
+        div {
+            max-width: 65vw;
+            margin: auto;
+            margin-top: 5rem;
+            font-size: 1.5rem;
+            background-color: beige;
+            padding: 60px;
+        }
+        footer {
+            margin-top: auto;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    {{>nav}}
+
+    <div>
+        <span>
+            <center>AboutUs</center>
+        </span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam necessitatibus et maxime iusto saepe architecto
+        cupiditate vero unde. Sit laudantium at cum assumenda placeat labore maxime temporibus exercitationem. Harum,
+        obcaecati!
+    </div>
+
+    {{>footer}}
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+
+</html>

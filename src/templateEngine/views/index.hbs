@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arvo&family=DM+Sans&family=Fira+Code&family=Marvel:wght@400;700&family=Montserrat&family=Noto+Serif&family=Open+Sans&family=Plus+Jakarta+Sans&family=Poppins&family=Sora&family=Ubuntu&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "noto serif";
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    {{>nav}} <!-- Swami@7826 -->
+
+    <p class="text-2xl mx-12 font-semibold mt-12">All Blogs</p>
+
+    {{#each blog as | element|}}
+
+    <div class="w-[70vw] max-w-[85vw] my-[20px] text-2xl mx-12">
+
+        {{!-- <a href='/blogs/{{blog._id}}'> --}}
+        <a href='/blogs/{{element._id}}'>
+            <span>
+                <center>{{user}}</center>
+            </span>
+
+            <p class="font-semibold py-4 text-2xl">{{element.title}}</p>
+            <p class="text-lg">{{element.snippet}}</p>
+        </a>
+    </div>
+    {{/each}}
+
+    {{>footer}}
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+</body>
+
+</html>

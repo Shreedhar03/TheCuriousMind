@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arvo&family=DM+Sans&family=Fira+Code&family=Marvel:wght@400;700&family=Montserrat&family=Noto+Serif&family=Open+Sans&family=Plus+Jakarta+Sans&family=Poppins&family=Sora&family=Ubuntu&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "noto serif";
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    {{>nav}}
+
+    <div class="mx-24 flex flex-col items-start gap-4 bg-slate-200 max-w-2xl mt-24 px-6 py-4">
+        <p class="text-2xl font-semibold">{{blog.title}}</p>
+        <p class="text-xl">{{blog.snippet}}</p>
+        <a class="px-4 py-2 text-xl bg-red-600 text-white delete" data-doc={{blog._id}}>Delete</a>
+    </div>
+
+    {{>footer}}
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const trash = document.querySelector("a.delete");
+        trash.addEventListener('click',(e)=>{
+            const endpoint = `/blogs/${trash.dataset.doc}`;
+
+            fetch(endpoint , {
+                method: "DELETE"
+            }).then((res)=>{
+                res.json({redirect : '/blogs'})
+                .then(data=>{
+                    window.location.href = data.redirect
+                })
+            })
+              .catch(err=>{console.log(err)})
+        })
+    </script>
+
+</body>
+
+</html>
